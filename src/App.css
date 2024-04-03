@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: linear-gradient(90deg, #69b7eb, #b3dbd3, #f4d6db);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main__container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.exchange__container {
+  width: 90%;
+  height: 55%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.form__container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  padding: 7px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 7px;
+  background: #fafeff;
+}
+
+.form__checkbox__wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.form__checkbox-input {
+  padding-left: 10px;
+}
+
+.form__input__date {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.form__input_date-text {
+  padding-right: 5px;
+}
+
+/* Graphics starts here */
+.graphics__container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 7px;
+  height: 700px;
+  width: 700px;
+  border-radius: 7px;
+  background: #fafeff;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 400px) {
+  .exchange__container {
+    flex-direction: column;
+    justify-content: center;
   }
-  to {
-    transform: rotate(360deg);
+  .graphics__container {
+    height: 330px;
+    width: 390px;
+  }
+}
+
+@media (min-width: 576px) {
+  .exchange__container {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .graphics__container {
+    height: 460px;
+    width: 550px;
+  }
+}
+
+@media (min-width: 768px) {
+  .exchange__container {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .graphics__container {
+    height: 660px;
+    width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .main__container {
+    width: 800px;
+  }
+  .exchange__container {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main__container {
+    width: 100%;
+  }
+  .exchange__container {
+    flex-direction: row;
   }
 }
