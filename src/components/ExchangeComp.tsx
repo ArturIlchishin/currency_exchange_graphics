@@ -122,13 +122,13 @@ export const ExchangeComp = () => {
             <div className={'form__input__date'}>
                 <div className={'form__input__date__first'}>
                     <label className={'form__input_date-text'}>First date
-                        <input type={'date'} min={'2024-03-06'} max={'2024-03-28'}
+                        <input className={'input__datepicker'} type={'date'} min={'2024-03-06'} max={'2024-03-28'}
                                onInput={(e) => setFirstDate(e.currentTarget.value)}/>
                     </label>
                 </div>
                 <div className={'form__input__date__last'}>
                     <label className={'form__input_date-text'}>Last date
-                        <input type={'date'} min={firstDate} max={'2024-03-28'}
+                        <input className={'input__datepicker'} type={'date'} min={firstDate} max={'2024-03-28'}
                                onInput={(e) => {
                                    setLastDate(e.currentTarget.value);
                                }}/>

@@ -41,11 +41,16 @@ body {
 
 .form__checkbox-input {
   padding-left: 10px;
+  margin: 5px;
 }
 
 .form__input__date {
   display: flex;
   margin-bottom: 10px;
+}
+
+.input__datepicker {
+  margin: 5px;
 }
 
 .form__input_date-text {
