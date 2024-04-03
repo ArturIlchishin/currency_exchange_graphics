@@ -2,8 +2,6 @@ import {useEffect, useState} from "react";
 import {IChecked, ICurrency, IMoney} from "./types";
 import {LineComponent} from "./LineComponent";
 
-
-
 export const ExchangeComp = () => {
     const [firstDate, setFirstDate] = useState<string>('');
     const [lastDate, setLastDate] = useState<string>('');
@@ -23,6 +21,8 @@ export const ExchangeComp = () => {
         cny : [],
     })
 
+    //При обновлении состояний текущей валюты и состояний чекбоксов, если галочка снята - состояние обнуляется
+    //Это необходимо для того, чтобы график исчезал, как снимается галочка с чекбокса.
     useEffect(() => {
         if(!isChecked.usd) {
             setMoney((prevState) => ({
@@ -44,7 +44,10 @@ export const ExchangeComp = () => {
         }
     }, [isChecked, currentCurrency])
 
-    useEffect(() => {formingDateColl(firstDate,lastDate)}, [lastDate, firstDate]);
+    //При изменении состояний начальной и последней даты вызывается функция формирования массива дат.
+    useEffect(() => {
+        formingDateColl(firstDate, lastDate)
+    }, [lastDate, firstDate]);
 
     useEffect(() => {
         if(firstDate && lastDate && dates.length > 0) {
@@ -79,7 +82,8 @@ export const ExchangeComp = () => {
             ...prevState,
             [curr] : result
         }));
-        await setFetchCount((prevState) => prevState+= result.length)
+        //Обновляем состояние количества запросов
+        await setFetchCount((prevState) => prevState += result.length)
         }
     }
     //Функция, формирующая массив дат и сохраняющая его в состояние
