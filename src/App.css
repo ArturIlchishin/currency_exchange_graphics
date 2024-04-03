@@ -114,3 +114,14 @@ body {
     flex-direction: row;
   }
 }
+
+@media screen and (max-device-width:480px){
+  .exchange__container {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .graphics__container {
+    height: 330px;
+    width: 390px;
+  }
+}
