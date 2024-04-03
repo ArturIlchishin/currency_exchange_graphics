@@ -9,6 +9,7 @@ export const ExchangeComp = () => {
     const [lastDate, setLastDate] = useState<string>('');
     const [dates, setDates] = useState<string[]>([]);
     const [currentCurrency, setCurrentCurrency] = useState<string>('');
+    const [fetchCount, setFetchCount] = useState<number>(0)
     //Состояние для проверки чекбоксов в виде объекта
     const [isChecked, setChecked] = useState<IChecked>({
         usd: false,
@@ -67,7 +68,7 @@ export const ExchangeComp = () => {
         if(curr.length > 0  && isChecked[curr as keyof typeof isChecked]) {
         let resultData = await Promise.all(arrayFetchDates);
         //Создаем промежуточный массив, который после будем помещать в состояние.
-        let result: ICurrency[] | undefined = [];
+        let result: ICurrency[] = [];
         for(let i = 0; i < resultData.length; i++) {
             result.push({
                 'date': resultData[i].date,
@@ -78,6 +79,7 @@ export const ExchangeComp = () => {
             ...prevState,
             [curr] : result
         }));
+        await setFetchCount((prevState) => prevState+= result.length)
         }
     }
     //Функция, формирующая массив дат и сохраняющая его в состояние
@@ -113,7 +115,6 @@ export const ExchangeComp = () => {
                         CNY
                     </label>
                 </div>
-
             <div className={'form__input__date'}>
                 <div className={'form__input__date__first'}>
                     <label className={'form__input_date-text'}>First date
@@ -130,6 +131,9 @@ export const ExchangeComp = () => {
                     </label>
                 </div>
             </div>
+             <div className={'form__fetch__count'}>
+                 <p className={'form__fetch__count-text'}>Server request count: {fetchCount}</p>
+             </div>
             </form>
                 <LineComponent arrayOfData={money} dates={dates} />
         </section>

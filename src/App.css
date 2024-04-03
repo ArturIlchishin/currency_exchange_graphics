@@ -63,6 +63,10 @@ body {
   border-radius: 7px;
   background: #fafeff;
 }
+.form__fetch__count {
+  display: flex;
+  justify-content: center;
+}
 
 @media (min-width: 400px) {
   .exchange__container {
